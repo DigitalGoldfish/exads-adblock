@@ -4,7 +4,7 @@
  * without making detectable browser requests to external javascripts or other resources.
  */
 
-define('SCRIPT_VERSION', 'php_2.0');
+define('SCRIPT_VERSION', 'php_2.1');
 define('CONNECT_TIMEOUT', 1);
 define('CACHE_PREFIX', 'exo_v1_');
 define('CACHE_INTERVAL_BANNERS', 3600); // id set to 0, banners won't be cached

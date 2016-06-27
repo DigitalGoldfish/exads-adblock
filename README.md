@@ -1,5 +1,5 @@
 # Anti-AdBlock solution
-[![Latest version](https://img.shields.io/badge/Latest%20version-v2.0-blue.svg)](https://github.com/EXADS/exads-adblock/archive/v2.0.tar.gz)
+[![Latest version](https://img.shields.io/badge/Latest%20version-v2.1-blue.svg)](https://github.com/EXADS/exads-adblock/archive/v2.1.tar.gz)
 
 ##Supported ad types
 * Image banners
@@ -21,9 +21,9 @@ This solution has a frontend and backend scripts (**frontend_loader.js** and **b
 
 The code can be downloaded like this:
 ```bash
-$ wget -q https://github.com/EXADS/exads-adblock/archive/v2.0.tar.gz
-$ tar -xf v2.0.tar.gz
-$ rm v2.0.tar.gz
+$ wget -q https://github.com/EXADS/exads-adblock/archive/v2.1.tar.gz
+$ tar -xf v2.1.tar.gz
+$ rm v2.1.tar.gz
 ```
 ###Displaying on page
 These lines have to be added once on the page (somewhere on top of \<body\>, above any ad zones that you want to add):

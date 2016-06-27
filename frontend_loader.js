@@ -1,5 +1,5 @@
 var ExoLoader = (function () {
-    var version = '2.0';
+    var version = '2.1';
 
     var setCookie = function (name, value, minutes_ttl) {
         var exdate = new Date();
@@ -55,6 +55,20 @@ var ExoLoader = (function () {
     var addDebugMessage = function (message) {
         var date = new Date();
         debug_messages.push(date.toISOString() + ": " + message);
+    };
+
+    var stringify = function (value) {
+        var reassign_when_finished = false;
+        if (typeof Array.prototype.toJSON !== 'undefined') {
+            reassign_when_finished = true;
+            var array_to_json = Array.prototype.toJSON;
+            delete Array.prototype.toJSON;
+        }
+        var val = JSON.stringify(value);
+        if (reassign_when_finished) {
+            Array.prototype.toJSON = array_to_json;
+        }
+        return val;
     };
 
     var loader = {
@@ -130,7 +144,7 @@ var ExoLoader = (function () {
                 addDebugMessage("renderBannerZones() empty zones or images");
                 return;
             }
-            for (var i in response.zones) {
+            for (var i = 0; i < response.zones.length; i++) {
                 var img_key = response.zones[i].img_key;
                 this.renderBannerZone(i, response.images[img_key], response.zones[i].dest);
             }
@@ -141,7 +155,7 @@ var ExoLoader = (function () {
             }
             window.exoNoExternalUI38djdkjDDJsio96 = true;
             addDebugMessage("serve() called");
-            setCookie(this.cookie_name, JSON.stringify(zone_params), 5);
+            setCookie(this.cookie_name, stringify(zone_params), 5);
             var loadDataScript = function () {
                 var dataScript = document.createElement("script");
                 dataScript.async = true;
@@ -162,7 +176,7 @@ var ExoLoader = (function () {
             return true;
         },
         getDebug: function() {
-            for (var i in debug_messages) {
+            for (var i = 0; i < debug_messages.length; i++) {
                 console.log(debug_messages[i]);
             }
         },
