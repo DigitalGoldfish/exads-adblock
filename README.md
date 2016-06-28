@@ -55,7 +55,7 @@ Add this to serve the ads on page, after all the addZone declarations.
 ```javascript
 <script type="text/javascript">
     // Place this after all addZone calls. Just once per page to request ad info for all added zones
-    ExoLoader.serve({"script_url":"backend_loader.php"});
+    ExoLoader.serve({"script_url":"/backend_loader.php"});
 </script>
 ```
 
