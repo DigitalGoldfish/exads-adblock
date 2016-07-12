@@ -1,5 +1,8 @@
 # CHANGELOG
 
+##2.2
+* New domain for ads-endpoint with better load balancing
+
 ##2.1
 * Fix incompatibility with Prototype framework
 

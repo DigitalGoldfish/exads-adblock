@@ -4,14 +4,14 @@
  * without making detectable browser requests to external javascripts or other resources.
  */
 
-define('SCRIPT_VERSION', 'php_2.1');
+define('SCRIPT_VERSION', 'php_2.2');
 define('CONNECT_TIMEOUT', 1);
 define('CACHE_PREFIX', 'exo_v1_');
 define('CACHE_INTERVAL_BANNERS', 3600); // id set to 0, banners won't be cached
 define('CACHE_KEYS_LIMIT_BANNERS', 100); //if set to 0, there will be no limit for the amount of keys this script can set
 define('CACHE_INTERVAL_SCRIPTS', 3600);
-define('POPUNDER_RESOURCE_URL', "https://syndication.exoclick.com/splash.php?type=3");
-define('MULTI_BANNER_RESOURCE_URL', "https://syndication.exoclick.com/ads-multi.php?block=1");
+define('POPUNDER_RESOURCE_URL', "https://syndication-adblock.exoclick.com/splash.php?type=3");
+define('MULTI_BANNER_RESOURCE_URL', "https://syndication-adblock.exoclick.com/ads-multi.php?block=1");
 define('ADS_COOKIE_NAME', 'exo_zones');
 define('ALLOW_MULTI_CURL', true);
 define('VERIFY_PEER', true);

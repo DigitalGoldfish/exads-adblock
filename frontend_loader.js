@@ -1,5 +1,5 @@
 var ExoLoader = (function () {
-    var version = '2.1';
+    var version = '2.2';
 
     var setCookie = function (name, value, minutes_ttl) {
         var exdate = new Date();

@@ -1,5 +1,5 @@
 # Anti-AdBlock solution
-[![Latest version](https://img.shields.io/badge/Latest%20version-v2.1-blue.svg)](https://github.com/EXADS/exads-adblock/archive/v2.1.tar.gz)
+[![Latest version](https://img.shields.io/badge/Latest%20version-v2.2-blue.svg)](https://github.com/EXADS/exads-adblock/archive/v2.2.tar.gz)
 
 ##Supported ad types
 * Image banners
@@ -21,18 +21,23 @@ This solution has a frontend and backend scripts (**frontend_loader.js** and **b
 
 The code can be downloaded like this:
 ```bash
-$ wget -q https://github.com/EXADS/exads-adblock/archive/v2.1.tar.gz
-$ tar -xf v2.1.tar.gz
-$ rm v2.1.tar.gz
+$ wget -q https://github.com/EXADS/exads-adblock/archive/v2.2.tar.gz
+$ tar -xf v2.2.tar.gz
+$ rm v2.2.tar.gz
 ```
 ###Displaying on page
-These lines have to be added once on the page (somewhere on top of \<body\>, above any ad zones that you want to add):
+Please note this script will show banners and popunders only when a user has an Ad Blocker installed and enabled.
+You need to keep the standard advertising tags for standard users.
+
+To display AdBlock ads these lines have to be added on the page in the sequence as provided here. 
+
+**1)** Inside \<body\> tag on the very top, just once above all ad zones that you want to add:
 ```javascript
 <script type="text/javascript" src="https://ads.exoclick.com/ad_track.js"></script>
 <script type="text/javascript" src="frontend_loader.js"></script>
 ```
 
-The following code is to declare an ad zone, put it in DOM where you want the zone to be displayed.
+**2)** The following code is to declare an ad zone, put it in DOM where you want the zone to be displayed.
 You can add multiple banner blocks like this on page.
 
 To add a banner do the following (make sure to replace the value for idzone with your zone id, and the corresponding values for width and height):
@@ -51,7 +56,9 @@ To add a popunder:
     ExoLoader.addZone({"type": "popunder", "idzone": "222"});
 </script>
 ```
-Add this to serve the ads on page, after all the addZone declarations.
+
+**3)** Add this code to serve the ads on page, after all the addZone declarations.
+It serves data for all previously declared ad zones in one request and should be called only once on the page.
 ```javascript
 <script type="text/javascript">
     // Place this after all addZone calls. Just once per page to request ad info for all added zones
@@ -68,6 +75,8 @@ It's recommended to keep them as they are, but in some cases it can be useful to
 
 * __CONNECT_TIMEOUT__ - the timeout in seconds used for curl requests.
 * __ALLOW_MULTI_CURL__ - when possible, script tries to use curl_multi_exec. If this is a burden on cpu - this can be turned off.
+* __VERIFY_PEER__ - this is at your own risk, but somethimes it's worth to set it to false, in case you do not want to verify the SSL certificate of our ad serving endpoint. It could be necessary when
+ you have some proxy between your server and ours that swaps the certificate **and you are aware about it**.
 
 If you have XCache or APC on your web-server these could be useful:
 * __CACHE_INTERVAL_BANNERS__ - cache lifetime for banner images (in seconds), if set to 0 images will NOT be cached.
