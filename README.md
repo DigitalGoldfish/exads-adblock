@@ -75,8 +75,6 @@ It's recommended to keep them as they are, but in some cases it can be useful to
 
 * __CONNECT_TIMEOUT__ - the timeout in seconds used for curl requests.
 * __ALLOW_MULTI_CURL__ - when possible, script tries to use curl_multi_exec. If this is a burden on cpu - this can be turned off.
-* __VERIFY_PEER__ - this is at your own risk, but somethimes it's worth to set it to false, in case you do not want to verify the SSL certificate of our ad serving endpoint. It could be necessary when
- you have some proxy between your server and ours that swaps the certificate **and you are aware about it**.
 
 If you have XCache or APC on your web-server these could be useful:
 * __CACHE_INTERVAL_BANNERS__ - cache lifetime for banner images (in seconds), if set to 0 images will NOT be cached.
