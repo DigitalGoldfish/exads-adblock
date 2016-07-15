@@ -34,7 +34,7 @@ To display AdBlock ads these lines have to be added on the page in the sequence 
 **1)** Inside \<body\> tag on the very top, just once above all ad zones that you want to add:
 ```javascript
 <script type="text/javascript" src="https://ads.exoclick.com/ad_track.js"></script>
-<script type="text/javascript" src="frontend_loader.js"></script>
+<script type="text/javascript" src="/frontend_loader.js"></script>
 ```
 
 **2)** The following code is to declare an ad zone, put it in DOM where you want the zone to be displayed.
